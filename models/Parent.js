@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 // create our Parent model
 class Parent extends Model {}
@@ -77,7 +77,7 @@ Parent.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "parent",
+    modelName: 'parent',
   }
 );
 

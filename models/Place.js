@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 // create our Location model
 class Place extends Model {}
@@ -25,7 +25,7 @@ Location.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "place",
+    modelName: 'place',
   }
 );
 
