@@ -1,10 +1,10 @@
 //requiring express router for managing routes
-const router = require('express').router
+const router = require('express').router;
 
 //creating apiRoutes
-const apiRoutes = require('./api')
+const apiRoutes = require('./api');
 
-router.use('/api', apiRoutes)
+router.use('/api', apiRoutes);
 
 //exporting module
-module.exports = router
+module.exports = router;
