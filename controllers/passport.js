@@ -30,4 +30,12 @@ function initialize(passport, getUserByUsername) {
   passport.deserializeUser((id, done) => {});
 }
 
+router.post(
+  '',
+  passport.authentication('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  })
+);
+
 module.export = initialize;
