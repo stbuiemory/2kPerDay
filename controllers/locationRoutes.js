@@ -1,42 +1,64 @@
-/* CRUD
-Create
-Read
-Update - router.post
-Delete - router.delete
-*/
-
 const router = require('express').Router();
-const { Article, Writer, Comment } = require('../models');
-// LILLIAN TO DO: this one needs doing (I forgot why I wrote this like this)
-const { getAttributes } = require('../models/Writer');
+const { Location } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET all locations
+router.get('/', async (req, res) => {
+  try {
+    const locationData = await Location.findAll();
+    res.status(200).json(locationData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET a single location
+router.get('/:id', async (req, res) => {
+  try {
+    const locationData = await Location.findByPk(req.params.id, {
+      // JOIN with travellers, using the Trip through table
+      include: [{ model: Plant, through: User, as: 'featured_plants' }],
+    });
+
+    if (!locationData) {
+      res.status(404).json({ message: 'No location found with this id!' });
+      return;
+    }
+
+    res.status(200).json(locationData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// CREATE a location
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newArticle = await Article.create({
+    const newLocation = await Location.create({
       ...req.body,
-      writer_id: req.session.writer_id,
+      user_id: req.session.user_id,
     });
-    res.status(200).json(newArticle);
+    res.status(200).json(newLocation);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+// DELETE a location
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const articleData = await Article.destroy({
+    const locationData = await Location.destroy({
       where: {
         id: req.params.id,
-        writer_id: req.session.writer_id,
+        user_id: req.session.user_id,
       },
     });
 
-    if (!articleData) {
-      res.status(404).json({ message: 'No article found with this id.' });
+    if (!locationData) {
+      res.status(404).json({ message: 'No location found with this id.' });
       return;
     }
-    res.status(200).json(articleData);
+    res.status(200).json(locationData);
   } catch (err) {
     res.status(500).json(err);
   }
