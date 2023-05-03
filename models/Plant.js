@@ -1,3 +1,5 @@
+const plantListURL =
+  'https://perenual.com/api/species-list?page=1&key=[sk-YD7M644b1a9a55fb8682]';
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -5,17 +7,17 @@ const sequelize = require('../config/connection');
 class Plant extends Model {}
 
 // create fields/columns for Plant model
+// we're using plant list
 Plant.init(
   {
     id: {
-      // are we using the id from the API?
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    plant_data: {
-      // fetch data from API
+    common_name: {
+      type: DataTypes.
       /* scientific name, common name, indoor, watering, sun, etc.
       INDOOR (HOUSE PLANT)
       OUTDOOR (GARDEN)
@@ -34,6 +36,13 @@ Plant.init(
       SOIL NEEDS
       */
     },
+    family: { 
+      
+    },
+    watering: {
+    
+    },
+
     parent_id: {
       type: DataTypes.INTEGER,
       references: {
