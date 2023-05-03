@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Plant } = require; // need to determine path to models folder (does this route need to be in api folder inside the controller folder -- see file structure from class)
-const withAuth = require; // need to add auth file to utils
+const { Plant } = require('../models'); // need to determine path to models folder (does this route need to be in api folder inside the controller folder -- see file structure from class)
+const withAuth = require('../utils/auth'); // need to add auth file to utils
 
 // need to figure out how/where to add DAYS to a user's plant selection with moment js
 /* EXAMPLE: `moment(timestamp).add(number, 'days');`
@@ -16,6 +16,36 @@ Another FUTURE DEV idea: Email notifications guilt-tripping you into logging int
 */
 const moment = require('moment');
 
+// GET all plants
+router.get('/', async (req, res) => {
+  try {
+    const plantData = await Plant.findAll();
+    res.status(200).json(plantData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET a single plant
+router.get('/:id', async (req, res) => {
+  try {
+    const plantData = await Plant.findByPk(req.params.id, {
+      // JOIN with travellers, using the Trip through table
+      include: [{ model: Location, through: User, as: 'plant_locations' }],
+    });
+
+    if (!plantData) {
+      res.status(404).json({ message: 'No plant found with this id!' });
+      return;
+    }
+
+    res.status(200).json(plantData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// CREATE a single plant
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPlant = await Plant.create({
@@ -29,6 +59,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// DELETE a single plant
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const plantData = await Plant.destroy({
