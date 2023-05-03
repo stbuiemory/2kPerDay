@@ -1,52 +1,50 @@
-const Parent = require('./Parent');
+const User = require('./User');
 const Plant = require('./Plant');
 // Location is indoor, outdoor, greenhouse, sunroom, windowsill, etc.
-const Place = require('./Place');
+const Location = require('./Location');
 
-// Plant Parent has ONE Place for now (future can have multiple gardens, sunrooms, etc.)
-Parent.hasOne(Place, {
-  foreignKey: 'parent_id',
+// User has ONE Location for now (future can have multiple gardens, sunrooms, etc.)
+User.hasOne(Location, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-// Parent can have many Plants
-Parent.hasMany(Plant, {
-  foreignKey: 'parent_id',
+// User can have many Plants
+User.hasMany(Plant, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-// A plant belongs to a single parent or belongsToMany ???? Are we thinking plant as a single item, or a plant type (unlimited qty)
-Plant.belongsTo(Parent, {
-  foreignKey: 'parent_id',
+// A plant belongs to a single User or belongsToMany ???? Are we thinking plant as a single item, or a plant type (unlimited qty)
+Plant.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
-// A Place belongs to a parent
-Place.belongsTo(Parent, {
-  foreignKey: 'parent_id',
+// A Location belongs to a User
+Location.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
-module.exports = { Reader, Book, LibraryCard };
+// NEED TO DEFINE RELATIONSHIP BETWEEN PLANTS AND LOCATIONS
+// USE  `through:` USER? like below
+// I need to think about "Location.belongsTo___?(Plant)" a bit more
 
-// NEED TO DEFINE RELATIONSHIP BETWEEN PLANTS AND PLACES
-// USE  `through:` PARENT? like below
-// I need to think about "Place.belongsTo___?(Plant)" a bit more
-
-Plant.belongsToMany(Place, {
+Plant.belongsToMany(Location, {
   through: {
-    model: Parent,
+    model: User,
     unique: false,
   },
-  as: 'placed_plants', // plants featured in a user's place
+  as: 'featured_plants', // plants featured in a user's Location
 });
 
-Place.belongsToMany(Plant, {
+Location.belongsToMany(Plant, {
   // Define the third table needed to store the foreign keys
   through: {
-    model: Parent,
+    model: User,
     unique: false,
   },
   // alias for when data is retrieved
-  as: 'plant_places', // does this name convey idea correctly? All the places (from multiple users) where a plant is used
+  as: 'plant_locations', // does this name convey idea correctly? All the Locations (from multiple users) where a plant is used
 });
 
-module.exports = { Parent, Place, Plant };
+module.exports = { User, Location, Plant };

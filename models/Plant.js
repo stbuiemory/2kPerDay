@@ -34,20 +34,20 @@ Plant.init(
       SOIL NEEDS
       */
     },
-    parent_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'parent',
+        model: 'user',
         key: 'id',
         unique: false, // a plant can belong to many users
       },
     },
-    place_id: {
+    location_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'place',
+        model: 'location',
         key: 'id',
-        unique: false, // a plant can belong in many places
+        unique: false, // a plant can belong in many locations
       },
     },
   },
