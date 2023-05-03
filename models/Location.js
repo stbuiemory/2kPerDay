@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our Location model
-class Place extends Model {}
+class Location extends Model {}
 
-// create fields/columns for Place model
+// create fields/columns for Location model
 Location.init(
   {
     id: {
@@ -25,8 +25,8 @@ Location.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'place',
+    modelName: 'location',
   }
 );
 
-module.exports = Place;
+module.exports = Location;

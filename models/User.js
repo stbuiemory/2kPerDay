@@ -2,12 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 //const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// create our user model
+// create our User model
+
 class User extends Model {}
 
 // create fields/columns for user model
 // Do we want to include a level or status, emoji/badge for points accumulated?
-user.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -75,11 +76,11 @@ user.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
   }
 );
 
-module.exports = user;
+module.exports = User;
