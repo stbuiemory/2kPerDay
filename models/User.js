@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our user model
-class user extends Model {}
+class User extends Model {}
 
 // create fields/columns for user model
 // Do we want to include a level or status, emoji/badge for points accumulated?
