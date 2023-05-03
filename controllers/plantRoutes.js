@@ -6,7 +6,7 @@ const withAuth = require; // need to add auth file to utils
 /* EXAMPLE: `moment(timestamp).add(number, 'days');`
 WHERE THE FIRST () IS THE ORIGINATING TIMESTAMP
 AND THE SECOND () IS THE NUMBER OF DAYS FROM OUR WATERING FREQUENCY GUIDELINES
-When a plant is added to a parent's place, it adds a timestamp.
+When a plant is added to a user's place, it adds a timestamp.
 That timestamp is the start time of plant watering or a care action.
 Then according to the watering frequency attribute on the plant, the moment + days countdown is displayed to the user.
 The countdown time is number of days (not a login count).
