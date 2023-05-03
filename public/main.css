@@ -1,0 +1,38 @@
+/* Styles for the login form */
+.form-control {
+    border-radius: 0;
+  }
+  
+  /* Styles for the login button */
+  .btn-primary {
+    background-color: rgba(237, 196, 143, 0.934);
+    border-color: darkslategray;
+    border-radius: 0;
+  }
+  
+  .btn-primary:hover {
+    background-color: darkolivegreen;
+    border-color: greenyellow;
+  }
+  
+  /* Styles for the card */
+  .card {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    background-color: #f5f5f5;
+    border-bottom: none;
+    padding: 1rem;
+  }
+  
+  .card-header h4 {
+    margin-bottom: 0;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
