@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Plant } = require('../models'); // need to determine path to models folder (does this route need to be in api folder inside the controller folder -- see file structure from class)
-const withAuth = require('../utils/auth'); // need to add auth file to utils
+// const withAuth = require('../utils/auth');
+// NEED TO USE PASSPORT ROUTE FROM BRANDON
 
 // need to figure out how/where to add DAYS to a user's plant selection with moment js
 /* EXAMPLE: `moment(timestamp).add(number, 'days');`
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const plantData = await Plant.findByPk(req.params.id, {
-      // JOIN with travellers, using the Trip through table
+      // JOIN with locations, using the Trip through table
       include: [{ model: Location, through: User, as: 'plant_locations' }],
     });
 
