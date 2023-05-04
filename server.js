@@ -6,10 +6,24 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const Handlebars = require('express-handlebars');
+const { v4: uuidv4 } = require('uuid');
 const { User } = require('./models'); // Assuming we defined our user model in models/index.js.  Rename based on Lilian's model feature
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+//sets up session, need to set up cookies
+const sess = {
+  secret: 'Secret session key',
+  cookie: {},
+  resave: false,
+  saveUnitilized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
