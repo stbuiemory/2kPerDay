@@ -8,7 +8,7 @@
 https://perenual.com/api/species/details/{API PLANT ID}?key=sk-YD7M644b1a9a55fb8682
 */
 
-let plantSearch = "https://perenual.com/api/species-list?page=1&key=sk-YD7M644b1a9a55fb8682&q=" + {USER SEARCH INPUT}
+// let plantSearch = "https://perenual.com/api/species-list?page=1&key=sk-YD7M644b1a9a55fb8682&q=" + '{USER SEARCH INPUT}'
 
 //function pulls just basic plant data for the information below
 function findPlant() {
