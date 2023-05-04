@@ -6,8 +6,6 @@ const sequelize = require('../config/connection');
 // create our Plant model
 class Plant extends Model {}
 
-// create fields/columns for Plant model
-// we're using plant list
 Plant.init(
   {
     id: {
@@ -17,32 +15,33 @@ Plant.init(
       autoIncrement: true,
     },
     common_name: {
-      type: DataTypes.
-      /* scientific name, common name, indoor, watering, sun, etc.
-      INDOOR (HOUSE PLANT)
-      OUTDOOR (GARDEN)
-
-      FRUITS
-      FLOWERS
-
-      PERENNIAL
-      ANNUAL
-
-      SUN REQUIREMENTS
-      WATERING
-      MAINTENANCE
-      CARE LEVEL (this is a diff field than maintenance)
-      PROPAGATION
-      SOIL NEEDS
-      */
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    family: { 
-      
+    family: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    cycle: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     watering: {
-    
+      type: DataTypes.STRING,
+      allowNull: false
     },
-
+    sunLight: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Propagation: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     parent_id: {
       type: DataTypes.INTEGER,
       references: {
