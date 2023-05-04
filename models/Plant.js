@@ -17,15 +17,7 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    family: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    cycle: {
+    scientific_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -37,7 +29,7 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    Propagation: {
+    plantImage: {
       type: DataTypes.STRING,
       allowNull: false
     },
