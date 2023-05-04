@@ -1,5 +1,4 @@
-const plantListURL =
-  'https://perenual.com/api/species-list?page=1&key=[sk-YD7M644b1a9a55fb8682]';
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
