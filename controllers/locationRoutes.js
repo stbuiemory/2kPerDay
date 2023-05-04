@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Location } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
+// NEED TO USE PASSPORT ROUTE FROM BRANDON
 
 // GET all locations
 router.get('/', async (req, res) => {
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const locationData = await Location.findByPk(req.params.id, {
-      // JOIN with travellers, using the Trip through table
+      // JOIN with Plants, using the User through table
       include: [{ model: Plant, through: User, as: 'featured_plants' }],
     });
 

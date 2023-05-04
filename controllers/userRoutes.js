@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
+// NEED TO USE PASSPORT ROUTE FROM BRANDON
 
+// CREATE new user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -17,6 +19,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -50,6 +53,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// LOG OUT user and end session
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
