@@ -9,7 +9,7 @@ function initialize(passport, getUserByUsername) {
     const user = getUserByUsername(Username);
 
     //if no user with this username, returning message that there is no user with that username
-    if (user == null) {
+    if (user === null) {
       return done(null, false, { message: 'No user with that username' });
     }
 
@@ -37,5 +37,14 @@ router.post(
     failureRedirect: '/login',
   })
 );
+
+router.post('/logout', function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
 
 module.export = initialize;
