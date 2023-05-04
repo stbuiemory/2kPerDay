@@ -19,10 +19,15 @@ function findPlant() {
 
     .then (function(data) {
         //let apiId = data.id (commented out as we are not certain we will be using the apiId to make further calls for more specific data)
-        let plantName = data.common_name;
-        let latinName = data.scientific_name;
-        let watering = data.watering;
-        let light = data.sunlight;
-        let plantImage = data.medium_url;
+        let plantName = data[0].common_name;
+        let latinName = data[0].scientific_name;
+        let watering = data[0].watering;
+        let light = data[0].sunlight;
+        let plantImage = data[0].medium_url;
     })
+}
+
+function savePlantData(plantData, data) {
+    localStorage.setItem(plantData, JSON.stringify(data))
+
 }
