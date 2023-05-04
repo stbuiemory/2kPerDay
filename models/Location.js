@@ -14,8 +14,6 @@ Location.init(
       autoIncrement: true,
     },
     location_name: {
-      // are we offering users a list of options to choose from
-      // or are they giving their "garden" a name like "Ina's Garden" etc?
       type: DataTypes.STRING,
       allowNull: false,
     },
