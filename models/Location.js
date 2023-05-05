@@ -17,6 +17,22 @@ Location.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+        unique: false, // a plant can belong to many users
+      },
+    },
+    plant_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'plant',
+        key: 'id',
+        unique: false, // a plant can belong in many locations
+      },
+    },
   },
   {
     sequelize,

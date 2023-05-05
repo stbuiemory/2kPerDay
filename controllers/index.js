@@ -1,5 +1,5 @@
 //requiring express router for managing routes
-const router = require('express').router;
+const router = require('express').Router();
 
 //creating apiRoutes
 const apiRoutes = require('./api');
