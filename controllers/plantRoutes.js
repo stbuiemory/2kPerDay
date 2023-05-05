@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Plant } = require('../models'); // need to determine path to models folder (does this route need to be in api folder inside the controller folder -- see file structure from class)
+const { Plant } = require('../models');
+// need to determine path to models folder (does this route need to be in api folder inside the controller folder -- see file structure from class)
 // const withAuth = require('../utils/auth');
 // NEED TO USE PASSPORT ROUTE FROM BRANDON
 
@@ -15,7 +16,10 @@ So that if the user doesn't log in and take action (watering, feeding, pruning, 
 FUTURE DEV: User points are accrued (or deducted) for number of plants kept alive for however many days so badges/titles can be earned and user can level up so that FANCY & RARE PLANTS ARE UNLOCKED!!!!
 Another FUTURE DEV idea: Email notifications guilt-tripping you into logging into the app like Duolingo.
 */
-const moment = require('moment');
+
+const dayjs = require('dayjs')
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format()
 
 // GET all plants
 router.get('/', async (req, res) => {
