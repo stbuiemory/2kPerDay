@@ -23,7 +23,7 @@ This is a browser based application. No extra installation steps are required to
 To use the application, refer to the deployed Heroku link. 
 
 The user will be prompted to login.
-![alt text](assets/Log-in.png)
+![alt text](assets/Log-In.png)
 
 
 The user will then be able to select a specific plant to add to their garden.
