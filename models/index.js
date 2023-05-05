@@ -4,7 +4,7 @@ const Plant = require('./Plant');
 const Location = require('./Location');
 
 // User has ONE Location for now (future can have multiple gardens, sunrooms, etc.)
-User.hasOne(Location, {
+/*User.hasOne(Location, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
@@ -14,33 +14,33 @@ User.hasMany(Plant, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
-
+*/
 // A plant belongs to a single User or belongsToMany ???? Are we thinking plant as a single item, or a plant type (unlimited qty)
-Plant.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// Plant.belongsTo(User, {
+//   foreignKey: 'user_id',
+// });
 
-// A Location belongs to a User
-Location.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// // A Location belongs to a User
+// Location.belongsTo(User, {
+//   foreignKey: 'user_id',
+// });
 
 // NEED TO DEFINE RELATIONSHIP BETWEEN PLANTS AND LOCATIONS
 // USE  `through:` USER? like below
 // I need to think about "Location.belongsTo___?(Plant)" a bit more
 
-Plant.belongsToMany(Location, {
+Plant.belongsToMany(User, {
   through: {
-    model: User,
+    model: Location,
     unique: false,
   },
-  as: 'featured_plants', // plants featured in a user's Location
+  as: 'featured_plants', // plants featured in a user's User
 });
 
-Location.belongsToMany(Plant, {
+User.belongsToMany(Plant, {
   // Define the third table needed to store the foreign keys
   through: {
-    model: User,
+    model: Location,
     unique: false,
   },
   // alias for when data is retrieved
