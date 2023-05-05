@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-// const withAuth = require('../utils/auth');
-// NEED TO USE PASSPORT ROUTE FROM BRANDON
+const bcrypt = require('bcrypt');
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -32,8 +31,11 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
-    const validPassword = await userData.checkPassword(req.body.password);
+    // USE bcrypt.compare() to compare password provided at login [req.body.password] to the hashed pw [userData.password]
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      userData.password
+    );
 
     if (!validPassword) {
       res
