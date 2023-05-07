@@ -1,0 +1,206 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400|Indie+Flower:400");
+
+:root {
+  --tan: #fcf9ec;
+  --tom-thumb: #42533b;
+  --black: #000000;
+  --text: #ffffff;
+  --font-size-s2: 12px;
+  --font-size-m3: 64px;
+  --font-size-m2: 14px;
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-indie_flower: "Indie Flower", Helvetica;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.login-page {
+  align-items: flex-start;
+  border: 1px none;
+  display: flex;
+  min-width: 1280px;
+}
+
+.log-in {
+  align-items: flex-start;
+  background-color: var(--tan);
+  display: flex;
+  gap: 96px;
+  height: 832px;
+  width: 1280px;
+}
+
+.image1 {
+  background-image: url('/images/leaves1.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 835px;
+  margin-top: -3px;
+  width: 515px;
+}
+
+.flex-col {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 3px;
+  min-height: 393px;
+  width: 534px;
+}
+
+.login-box {
+  align-items: center;
+  background-color: #fad5a1;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  overflow: hidden;
+  padding: 31px 174px;
+  position: relative;
+  width: fit-content;
+}
+
+.come-view-your-garden {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m2);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.inter-normal-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-s2);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.login-box-item {
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.frame {
+  background-color: var(--text);
+  height: 22px;
+  min-width: 186px;
+  position: relative;
+}
+
+.frame-6 {
+  background-color: var(--tom-thumb);
+  height: 28px;
+  min-width: 112px;
+  position: relative;
+}
+
+.login {
+  color: var(--text);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-s2);
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 5px;
+}
+
+.pot-it-like-its-hot {
+  color: var(--black);
+  font-family: var(--font-family-indie_flower);
+  font-size: var(--font-size-m3);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 40px;
+  min-height: 93px;
+  min-width: 422px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+In this example, the HTML form element is used to group the input fields together. The label element is used to add a label for each input field. The input elements are used to create the actual input fields. The CSS code is used to style the form and its elements, including setting the width, padding, margin, border, border-radius, box-shadow, background-color, and font-size properties. By using CSS Flexbox, the form is centered and the input fields are stacked vertically.
+
+
+
+
+
+User
+How do I make the header bigger?  .pot-it-like-its-hot {
+  color: var(--black);
+  font-family: var(--font-family-indie_flower);
+  font-size: var(--font-size-m3);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 40px;
+  min-height: 93px;
+  min-width: 422px;
+}
+ChatGPT
+To make the header bigger, you can increase the font-size property in the .pot-it-like-its-hot selector. For example, if you want to double the size of the header, you can change the font-size value to 2em or 200%. Here is an example of how to do this:
+
+css
+Copy code
+.pot-it-like-its-hot {
+  color: var(--black);
+  font-family: var(--font-family-indie_flower);
+  font-size: 4em; /* or 400% */
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 40px;
+  min-height: 93px;
+  min-width: 422px;
+}
+In this example, the font-size property is set to 4em, which will make the header four times larger than the original size. You can adjust this value as needed to achieve the desired size.
