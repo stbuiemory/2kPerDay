@@ -1,3 +1,7 @@
+const dayjs = require('dayjs')
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format()
+
 /* 
 get plant id
 get watering freq from api data
