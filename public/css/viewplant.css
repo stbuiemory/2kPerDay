@@ -1,0 +1,210 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400,600");
+
+:root {
+  --tan: #fcf9ec;
+  --background: #754a3f;
+  --pink: #f1a791;
+  --black: #000000;
+  --text: #ffffff;
+  --font-size-m: 20px;
+  --font-size-xxl: 15px;
+  --font-size-s2: 12px;
+  --font-size-l: 32px;
+  --font-size-m2: 14px;
+  --font-family-inter: "Inter", Helvetica;
+}
+
+.view-specific-plant {
+  align-items: flex-start;
+  background-color: var(--tan);
+  border: 1px none;
+  display: flex;
+  flex-direction: column;
+  height: 832px;
+  overflow: hidden;
+  width: 1280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.flex-row {
+  align-items: center;
+  display: flex;
+  margin-left: 2px;
+  min-width: 1116px;
+}
+
+.frame-2 {
+  align-items: center;
+  background-color: #847263;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 770px;
+  padding: 67px 0;
+  width: 190px;
+}
+
+.add-plants {
+  color: var(--tan);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-s2);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 1px;
+  min-height: 15px;
+  min-width: 61px;
+}
+
+.frame-13 {
+  align-items: flex-start;
+  background-color: #dbc0b9;
+  display: flex;
+  height: 35px;
+  padding: 9px 64px;
+  width: 190px;
+}
+
+.my-garden {
+  color: var(--text);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-s2);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 15px;
+}
+
+.frame-9 {
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/6453f6cab783beb5cb352f96/releases/64582c2f5250ee1b14b309cd/img/frame-9.svg);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 10px;
+  height: 305px;
+  margin-bottom: 59px;
+  margin-left: 94px;
+  width: 315px;
+}
+
+.flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 54px;
+  margin-top: 8px;
+  min-height: 374px;
+  width: 463px;
+}
+
+.inter-normal-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.lorem-ipsum-dolor-si {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2px;
+  margin-top: 24px;
+  min-height: 72px;
+  width: 461px;
+}
+
+.last-watered-mmddyyyy {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m2);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2px;
+  margin-top: 27px;
+  min-height: 17px;
+}
+
+.frame-10 {
+  align-items: flex-start;
+  background-color: var(--pink);
+  display: flex;
+  height: 33px;
+  margin-left: 2px;
+  margin-top: 28px;
+  padding: 7px 21px;
+  width: 115px;
+}
+
+.water-me {
+  color: var(--text);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 1px;
+  min-height: 18px;
+  white-space: nowrap;
+}
+
+.title {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 39px;
+}
+
+.category-indoor {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2px;
+  margin-top: 15px;
+  min-height: 24px;
+  white-space: nowrap;
+}
+
+.a-aliquam-aliquam-nu {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 2px;
+  margin-top: 23px;
+  min-height: 72px;
+  width: 461px;
+}
+
+.frame-3 {
+  align-items: flex-start;
+  background-color: var(--background);
+  display: flex;
+  height: 62px;
+  margin-left: 2px;
+  margin-top: -2px;
+  padding: 21px 46px;
+  width: 1280px;
+}
+
+.pot-it-like-its-hot {
+  color: var(--tan);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 18px;
+  white-space: nowrap;
+}

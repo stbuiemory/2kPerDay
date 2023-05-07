@@ -41,7 +41,7 @@
 }
 
 .image1 {
-  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/6453f6cab783beb5cb352f96/releases/6453f7fbbf7b2ab74330f0bd/img/frame-11.png);
+  background-image: url('/images/leaves1.jpg');
   background-position: 50% 50%;
   background-size: cover;
   height: 835px;
@@ -204,9 +204,3 @@ Copy code
   min-width: 422px;
 }
 In this example, the font-size property is set to 4em, which will make the header four times larger than the original size. You can adjust this value as needed to achieve the desired size.
-
-
-
-
-
-
