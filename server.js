@@ -49,7 +49,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.use("/images", express.static(path.join(__dirname, "public/img")));
+app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 app.get('/', (req, res) => {
     res.render('main', {layout: 'login'});
