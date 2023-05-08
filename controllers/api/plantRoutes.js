@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Plant } = require('../models');
+const { Plant } = require('../../models');
 
 // need to figure out how/where to add DAYS to a user's plant selection with moment js
 /* EXAMPLE: `dayjs(timestamp).add(number, 'days');`
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE a single plant
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newPlant = await Plant.create({
       ...req.body,
@@ -63,7 +63,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // DELETE a single plant
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const plantData = await Plant.destroy({
       where: {
