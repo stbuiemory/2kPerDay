@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS hotPots_db;
-CREATE DATABASE hotPots_db;
+DROP DATABASE IF EXISTS hotpots_db;
+CREATE DATABASE hotpots_db;

@@ -1,17 +1,10 @@
 [
   {    
   "location_name": "My Garden",
-  "user_id": "1",
-  "featured_plants": [
-    {
-      "plant_id": "1"
-    },
-    {
-      "plant_id": "2"
-    },
-    {
-      "plant_id": "3"
-    }
-  ]
+  "user_id": 1
+  },
+  {    
+  "location_name": "Sandy's Garden",
+  "user_id": 3
   }
 ]

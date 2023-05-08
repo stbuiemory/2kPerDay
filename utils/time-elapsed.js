@@ -1,6 +1,6 @@
-const dayjs = require('dayjs')
+const dayjs = require('dayjs');
 //import dayjs from 'dayjs' // ES 2015
-dayjs().format()
+dayjs().format();
 
 /* 
 get plant id
@@ -28,24 +28,63 @@ const
 4. newActionDate =
 5. repeat steps 2 and 3 and reset step 4
 
-const currentDate = // this current session
+const currentDate = User.findOne
 const dateLastActed = || const daysSinceLastAction =
 const daysUntilNextAction =
 
-var currentTimeArray = [];
-function currentTime(){
-  var time = moment();
-  return currentTimeArray.push(time);
-}
 
-$('.next-fieldgroup').on('click', function(e){
-  e.preventDefault();
-  currentTime();
+// EXAMPLE
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { email: req.body.email },
+    });
 
-  var endTime = $(currentTimeArray).last();
-  var startTime = currentTimeArray[0];
-  var duration = moment.duration(endTime.diff(startTime));
-  var elapsedTime = duration().asMinutes();
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+    // USE bcrypt.compare() to compare password provided at login [req.body.password] to the hashed pw [userData.password]
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      userData.password
+    );
 
-  $('#timer-counter').text( elapsedTime );
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
+
+// EXAMPLE FROM INTERNET
+// var currentTimeArray = [];
+// function currentTime(){
+//   var time = moment();
+//   return currentTimeArray.push(time);
+// }
+
+// $('.next-fieldgroup').on('click', function(e){
+//   e.preventDefault();
+//   currentTime();
+
+//   var endTime = $(currentTimeArray).last();
+//   var startTime = currentTimeArray[0];
+//   var duration = moment.duration(endTime.diff(startTime));
+//   var elapsedTime = duration().asMinutes();
+
+//   $('#timer-counter').text( elapsedTime );
+// });

@@ -3,7 +3,7 @@
     "first_name": "Lillian",
     "last_name": "Hughes",
     "username": "bestintentions",
-    "email": "lillian.atlanta@gmail.com",
+    "email": "lillian@plant.net",
     "password": "greenishbrownthumb",
     "points": 0
   },
@@ -11,24 +11,24 @@
     "first_name": "Brandon",
     "last_name": "Kilgore",
     "username": "plant_whisperer",
-    "email": "",
-    "password": "",
+    "email": "brandon@plant.net", 
+    "password": "brandonisthebest",
     "points": 0
   },
   {
     "first_name": "Sandy",
     "last_name": "Bui",
     "username": "planted_parent",
-    "email": "",
-    "password": "",
+    "email": "sandy@plant.net",
+    "password": "sandyissuper",
     "points": 0
   },
   {
     "first_name": "Clarence",
     "last_name": "Chang",
     "username": "cali_greenery",
-    "email": "",
-    "password": "",
+    "email": "clarence@plant.net",
+    "password": "clarenceiscool",
     "points": 0
   }             
 ]
