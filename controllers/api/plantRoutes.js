@@ -10,6 +10,7 @@ That timestamp is the start time of plant watering or a care action.
 Then according to the watering frequency attribute on the plant, the timestamp + days countdown is displayed to the user.
 The countdown time is number of days (not a login count).
 So that if the user doesn't log in and take action (watering, feeding, pruning, etc.) in the allotted time frame, the plant is unhappy (or dead if a certain number of days passes since last login.)
+
 FUTURE DEV: User points are accrued (or deducted) for number of plants kept alive for however many days so badges/titles can be earned and user can level up so that FANCY & RARE PLANTS ARE UNLOCKED!!!!
 Another FUTURE DEV idea: Email notifications guilt-tripping you into logging into the app like Duolingo.
 */
