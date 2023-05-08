@@ -1,24 +1,17 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Pot It Like It's Hot</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <div class="login-page screen">
-  <div class="log-in">
-    <img src="./images/leaves1.jpg" alt="Leaves1">
-    <div class="flex-col">
-      <h1 class="pot-it-like-its-hot">Pot It like It’s hot</h1>
+    <div class="container">
+      <img src="/public/img/PILIT_Logo.jpg" class="logo img-fluid" alt="logo">
       <div class="login-box">
-        <div class="come-view-your-garden">Come view your garden</div>
+        <h1 class="come-view-your-garden">Come view your garden</h1>
         <form method="POST" action="./addplants.handlebars">
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username"><br>
-        
+          <input type="text" id="username" name="username"><br>     
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password"><br>
-        
+          <input type="password" id="password" name="password"><br>        
           <input type="submit" value="Login">
         </form>
       </div>
