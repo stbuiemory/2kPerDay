@@ -26,12 +26,21 @@ Location.init(
       },
     },
     // LILLIAN TODO: We likely need to change this to an array of objects (aka plants)
-    plant_id: {
-      type: DataTypes.INTEGER,
+    // plant_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'plant',
+    //     key: 'id',
+    //     unique: false, // a plant can belong in many locations
+    //   },
+    // },
+    located_plants: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
       references: {
-        model: 'plant',
+        model: 'locatedplant',
         key: 'id',
-        unique: false, // a plant can belong in many locations
+        unique: false, // maybe should be true, as a located plant can only be in 1 location
       },
     },
   },
