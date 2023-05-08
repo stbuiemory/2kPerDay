@@ -38,9 +38,9 @@ const sess = {
   }),
 };
 
-app.use(session(sess));
+/* app.use(session(sess));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); */
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
