@@ -32,7 +32,7 @@ const sess = {
   secret: 'Secret session key',
   cookie: {},
   resave: false,
-  saveUnitialized: true,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),
