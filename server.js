@@ -42,8 +42,19 @@ app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// Handlebars start
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+app.use(express.static('public'));
+
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+app.get('/', (req, res) => {
+    res.render('main', {layout: 'login'});
+});
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
