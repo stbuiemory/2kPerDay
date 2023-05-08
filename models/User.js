@@ -3,7 +3,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our User model
-
 class User extends Model {}
 
 // create fields/columns for user model
@@ -52,8 +51,8 @@ User.init(
     points: {
       type: DataTypes.INTEGER,
       allowNull: true, // starting level at zero or blank?
-      /* users accumulate points for caring for their plants 
-      or for completing quizzes about plant knowledge 
+      /* users accumulate points for caring for their plants
+      or for completing quizzes about plant knowledge
       points indicate user level or progress in plant parenting
       earn badges or prizes (like fertilizer or cute labels or new garden tools) for leveling up
       */
@@ -66,13 +65,13 @@ User.init(
       // Use the beforeCreate hook to work with data before a new instance is created
       beforeCreate: async (newUserData) => {
         // In this case, we are taking the user's email address, and making all letters lower case before adding it to the database.
-        newParentData.email = await newParentData.email.toLowerCase();
-        return newParentData;
+        newUserData.email = await newUserData.email.toLowerCase();
+        return newUserData;
       },
       // Here, we use the beforeUpdate hook to make all of the characters lower case in an updated email address, before updating the database.
-      beforeUpdate: async (updateUserData) => {
-        updatedParentData.email = await updatedParentData.email.toLowerCase();
-        return updatedParentData;
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.email = await updatedUserData.email.toLowerCase();
+        return updatedUserData;
       },
     },
     sequelize,

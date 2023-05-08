@@ -1,18 +1,19 @@
 const express = require('express');
 const session = require('express-session');
+const path = require('path');
 // const Sequelize = require('sequelize');
 // const MySQLStore = require('connect-session-sequelize')(session.Store);
 // const bcrypt = require('bcrypt');
-// const passport = require('passport');
+const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
-// const Handlebars = require('express-handlebars');
+//const Handlebars = require('express-handlebars');
 // const { v4: uuidv4 } = require('uuid');
-// const { User } = require('./models'); // Assuming we defined our user model in models/index.js.  Rename based on Lilian's model feature
+// const { User } = require('./models');
+/* FYI: The above lines from Sandy's original are commented out
+        because those consts are "assigned a value but never used"
+        as pointed out by ESlint */
 
-// const app = express();
-// const PORT = process.env.PORT || 3001;
-
-// LILLIAN NOTE TODO: lines 16-28 from class example, recommended by tutor
+// LILLIAN NOTE TODO: lines 16-28 below are from a class example, recommended usage by tutor
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/time-helpers');
@@ -31,7 +32,7 @@ const sess = {
   secret: 'Secret session key',
   cookie: {},
   resave: false,
-  saveUnitilized: true,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),

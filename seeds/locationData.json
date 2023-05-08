@@ -1,7 +1,10 @@
 [
   {    
-  "location_name": "",
-  "user_id": "",
-  "plant_id": ""
+  "location_name": "My Garden",
+  "user_id": 1
+  },
+  {    
+  "location_name": "Sandy's Garden",
+  "user_id": 3
   }
 ]

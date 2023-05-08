@@ -1,23 +1,23 @@
 [
   {    
-  "common_name": "",
-  "scientific_name": "",
-  "watering": "",
-  "sunLight": "",
+  "common_name": "Cabbagetown",
+  "scientific_name": "Cabbagus Townus",
+  "watering": "Frequent",
+  "sunLight": "Full Sun",
   "plantImage": ""
   },
   {    
-  "common_name": "",
-  "scientific_name": "",
-  "watering": "",
-  "sunLight": "",
+  "common_name": "Summerhill",
+  "scientific_name": "Summerus Hillius",
+  "watering": "Rarely",
+  "sunLight": "Partial",
   "plantImage": ""
   },
   {    
-  "common_name": "",
-  "scientific_name": "",
-  "watering": "",
-  "sunLight": "",
+  "common_name": "Buckhead",
+  "scientific_name": "Buttus Maximus",
+  "watering": "Never",
+  "sunLight": "None",
   "plantImage": ""
   }
 ]
