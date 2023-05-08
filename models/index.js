@@ -15,13 +15,14 @@ Location.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+// Plants are featured in a user's location
 Plant.belongsToMany(Location, {
   through: LocatedPlant,
-  foreignKey: 'plant_id', // plants featured in a user's location
+  foreignKey: 'plant_id',
 });
 
+// Many locations can feature a plant
 Location.belongsToMany(Plant, {
-  // Define the third table needed to store the foreign keys
   through: LocatedPlant,
   foreignKey: 'location_id',
 });

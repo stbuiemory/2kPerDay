@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const bcrypt = require('bcrypt');
+const withAuth = require('../../utils/auth');
+// see line 24 for use
+// const bcrypt = require('bcrypt');
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -19,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 // LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
-router.post('/login', async (req, res) => {
+router.post('/login', withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { email: req.body.email },
