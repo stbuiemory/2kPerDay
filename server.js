@@ -1,11 +1,12 @@
 const express = require('express');
 const session = require('express-session');
+const path = require('path');
 // const Sequelize = require('sequelize');
 // const MySQLStore = require('connect-session-sequelize')(session.Store);
 // const bcrypt = require('bcrypt');
 const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
-// const Handlebars = require('express-handlebars');
+//const Handlebars = require('express-handlebars');
 // const { v4: uuidv4 } = require('uuid');
 // const { User } = require('./models');
 /* FYI: The above lines from Sandy's original are commented out
@@ -31,7 +32,7 @@ const sess = {
   secret: 'Secret session key',
   cookie: {},
   resave: false,
-  saveUnitilized: true,
+  saveUnitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),
