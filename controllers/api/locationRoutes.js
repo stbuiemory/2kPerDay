@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Location } = require('../models');
+const { Location } = require('../../models');
 
 // GET all locations
 router.get('/', async (req, res) => {
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const locationData = await Location.findByPk(req.params.id, {
-      // JOIN with Plants, using the User through table
+      // JOIN with Plant, using the User through table
       include: [{ model: Plant, through: User, as: 'featured_plants' }],
     });
 
@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE a location
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newLocation = await Location.create({
       ...req.body,
@@ -44,7 +44,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // DELETE a location
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const locationData = await Location.destroy({
       where: {

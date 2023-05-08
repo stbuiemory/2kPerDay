@@ -25,6 +25,7 @@ Location.init(
         unique: false, // a plant can belong to many users
       },
     },
+    // LILLIAN TODO: We likely need to change this to an array of objects (aka plants)
     plant_id: {
       type: DataTypes.INTEGER,
       references: {
