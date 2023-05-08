@@ -34,7 +34,7 @@ Plant.belongsToMany(User, {
     model: Location,
     unique: false,
   },
-  as: 'featured_plants', // plants featured in a user's User
+  as: 'featured_plants', // plants featured in a user's location
 });
 
 User.belongsToMany(Plant, {

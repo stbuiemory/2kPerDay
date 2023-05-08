@@ -1,7 +1,17 @@
 [
   {    
-  "location_name": "",
-  "user_id": "",
-  "plant_id": ""
+  "location_name": "My Garden",
+  "user_id": "1",
+  "featured_plants": [
+    {
+      "plant_id": "1"
+    },
+    {
+      "plant_id": "2"
+    },
+    {
+      "plant_id": "3"
+    }
+  ]
   }
 ]
