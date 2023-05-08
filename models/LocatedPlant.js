@@ -2,10 +2,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our Location model
-class Location extends Model {}
+class LocatedPlant extends Model {}
 
 // create fields/columns for Location model
-Location.init(
+LocatedPlant.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,35 +13,30 @@ Location.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    location_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    user_id: {
+    location_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'location',
+        key: 'id',
+        unique: false,
+      },
+    },
+    plant_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'plant',
         key: 'id',
         unique: false, // a plant can belong to many users
       },
     },
-    // LILLIAN TODO: We likely need to change this to an array of objects (aka plants)
-    // plant_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'plant',
-    //     key: 'id',
-    //     unique: false, // a plant can belong in many locations
-    //   },
-    // },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'location',
+    modelName: 'garden',
   }
 );
 
-module.exports = Location;
+module.exports = LocatedPlant;
