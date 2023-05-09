@@ -23,7 +23,8 @@ dayjs().format();
 router.get('/', async (req, res) => {
   try {
     const plantData = await Plant.findAll();
-    res.status(200).json(plantData);
+    //include handlebars to addplant
+    // res.status(200).json(plantData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -45,6 +46,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(plantData);
   } catch (err) {
     res.status(500).json(err);
+    //include handlebars to addplant
   }
 });
 

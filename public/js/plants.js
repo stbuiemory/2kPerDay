@@ -10,15 +10,8 @@ https://perenual.com/api/species/details/{API PLANT ID}?key=sk-YD7M644b1a9a55fb8
 
 // with user input: "https://perenual.com/api/species-list?page=1&key=sk-YD7M644b1a9a55fb8682&q=" + '{USER SEARCH INPUT}'
 
-
-function populateGarden() {
-  //loop through entire garden DOM to populate images
-}
-
-
 //function pulls just basic plant data for the information below
-function populatePlantEntity() {
-
+function populateGarden() {
   for (let i=0; i<9; i++) {
     let plantId = Math.floor(Math.random() * 100);
     //api call for a plant with randomized id
@@ -33,7 +26,6 @@ function populatePlantEntity() {
         let plantName = data[0].common_name;
         let latinName = data[0].scientific_name;
         let watering = data[0].watering;
-        //frequent, average, minimal
         let light = data[0].sunlight;
         let plantImage = data[0].medium_url;
         $(`#plant-image-${i+1}`).attr("src", plantImage);
@@ -45,12 +37,15 @@ function populatePlantEntity() {
   }
 }
 
+populateGarden()
+
 function addToMyGarden() {
+  
   // when add to garden is clicked, all plant information is inserted into SQL table 
 }
 
 function resetWaterCount() {
-  //if watercount is low 
+  //if watercount is low,
 }
 
 function savePlantData(plantData, data) {
