@@ -26,7 +26,7 @@ app.get('/mygarden', (req, res) => {
   res.render('partials/mygarden', { layout: 'main' });
 });
 
-app.get('/addplant', (req, res) => {
+app.get('/addplants', (req, res) => {
   res.render('partials/addplants', { layout: 'main' });
 });
 
