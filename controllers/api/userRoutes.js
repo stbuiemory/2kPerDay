@@ -3,7 +3,7 @@ const { User } = require('../../models/User');
 //const bcrypt = require('bcrypt');
 
 // CREATE new user
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -16,6 +16,7 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
+  res.render('partials/mygarden', { layout: 'main' });
 });
 
 // LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
@@ -26,7 +27,7 @@ router.post('/login', async (req, res) => {
     successRedirect: '/mygarden',
     failureRedirect: '/login',
   })
-); */
+);*/
 
 router.get('/login', async (req, res) => {
   try {
