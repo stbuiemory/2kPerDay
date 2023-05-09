@@ -92,7 +92,7 @@ label {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  gap: 19px;
+  /* gap: 19px; */
   overflow: hidden;
   padding: 31px 174px;
   position: relative;
@@ -110,12 +110,17 @@ label {
   align-items: center;
   background-color: var(--tan);
   display: flex;
-  gap: 96px;
   height: 832px;
   width: 100%;
 }
 
 .login-page {
+  justify-content: center;
+  flex-direction: center;
+  align-items: center;
+}
+
+.logout-page {
   justify-content: center;
   flex-direction: center;
   align-items: center;
