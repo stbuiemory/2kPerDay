@@ -75,6 +75,33 @@ router.post('/', async (req, res) => {
   }
 });
 
+// UPDATE a single plant with watering
+// watering levels: Frequent, Average, Minimal
+router.put('/:id', async (req, res) => {
+  const waterFreq = await Plant.update(
+    { watering: req.body.watering },
+    {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    }
+  );
+  if (waterFreq[0] === 1) {
+    if (req.body.watering === 'Minimal') {
+      res.status(200).json('Water me every 14 days.');
+    } else if (req.body.watering === 'Average') {
+      res.status(200).json('Water me every 7 days.');
+    } else if (req.body.watering === 'Frequent') {
+      res.status(200).json('Water me every 3 days.');
+    } else {
+      res.status(200).json('The humidity is enough moisture for me.');
+    }
+  } else {
+    res.status(404).json('Plant not found.');
+  }
+});
+
 // DELETE a single plant
 router.delete('/:id', async (req, res) => {
   try {
@@ -91,7 +118,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     const plant = plantData.get({ plain: true });
-    // LIL TODO: Do we need to have a diff hbs for deleted plants?
+    // TODO: Do we need to have a diff hbs for deleted plants?
     res.render('viewspecificplant', {
       ...plant,
       logged_in: req.session.logged_in,

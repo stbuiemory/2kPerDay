@@ -1,11 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
-// see line 24 for use
-// const bcrypt = require('bcrypt');
+const { User } = require('../../models/User');
+//const bcrypt = require('bcrypt');
 
 // CREATE new user
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -20,17 +18,26 @@ router.post('/', async (req, res) => {
   }
 });
 
-// LOG IN existing user (FIND USER BY USERNAME AND CHECK PASSWORD)
-router.get('/login', withAuth, async (req, res) => {
+// LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
+
+/* router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/mygarden',
+    failureRedirect: '/login',
+  })
+); */
+
+router.get('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
-      where: { username: req.body.username },
+      where: { email: req.body.email },
     });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
     // USE bcrypt.compare() to compare password provided at login [req.body.password] to the hashed pw [userData.password]
@@ -42,7 +49,7 @@ router.get('/login', withAuth, async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -51,11 +58,7 @@ router.get('/login', withAuth, async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
-
-      res.render('main', {
-        user,
-        logged_in: req.session.logged_in,
-      });
+      res.render('partials/login', { layout: 'main' });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -63,6 +66,12 @@ router.get('/login', withAuth, async (req, res) => {
 });
 
 // LOG OUT user and end session
+router.post('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/logout');
+  console.log('USER HAS LOGGED OUT');
+});
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

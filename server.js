@@ -6,6 +6,8 @@ const path = require('path');
 // const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
+//const intializePassport = require('controllers/passport-config.js');
 //const Handlebars = require('express-handlebars');
 // const { v4: uuidv4 } = require('uuid');
 // const { User } = require('./models');
@@ -13,7 +15,7 @@ const LocalStrategy = require('passport-local').Strategy;
         because those consts are "assigned a value but never used"
         as pointed out by ESlint */
 
-// LILLIAN NOTE TODO: lines 16-28 below are from a class example, recommended usage by tutor
+// LILLIAN NOTE: lines 16-28 below are from a class example, recommended usage by tutor
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/time-helpers');
@@ -25,7 +27,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -69,7 +71,7 @@ app.get('/mygarden', (req, res) => {
   res.render('partials/mygarden', { layout: 'main' });
 });
 
-app.get('/addplant', (req, res) => {
+app.get('/addplants', (req, res) => {
   res.render('partials/addplants', { layout: 'main' });
 });
 

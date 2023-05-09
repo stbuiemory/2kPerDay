@@ -156,6 +156,20 @@ authUser = (user, password, done) => {
   return done (null, authenticated_user)
 }
 
+
+
+checkAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {return next()}
+  res.redirect('/login')
+}
+
+checkedLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect('/mygarden')
+  }
+  next
+}
+
 passport.serializeUser((userObj, done) => {
   done(null, userObj)
 })
@@ -168,4 +182,10 @@ app.post ('/login', passport.authenticate('local', {
   successRedirect: '/mygarden',
   failureRedirect: '/login',
 }))
+
+app.delete ('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/logout')
+  console.log(`USER HAS LOGGED OUT`)
+})
 
