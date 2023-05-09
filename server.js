@@ -5,7 +5,7 @@ const path = require('path');
 // const MySQLStore = require('connect-session-sequelize')(session.Store);
 // const bcrypt = require('bcrypt');
 const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 //const Handlebars = require('express-handlebars');
 // const { v4: uuidv4 } = require('uuid');
 // const { User } = require('./models');
@@ -27,6 +27,8 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({});
 
+app.use(express.urlencoded({ extended: false }));
+
 //sets up session, need to set up cookies
 const sess = {
   secret: 'Secret session key',
@@ -41,6 +43,7 @@ const sess = {
 app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new LocalStrategy(authUser));
 
 // Handlebars start
 app.engine('handlebars', hbs.engine);
@@ -51,7 +54,7 @@ app.use(express.static('public'));
 // app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 app.get('/', (req, res) => {
-    res.render('partials/login', {layout: 'main'});
+  res.render('partials/login', { layout: 'main' });
 });
 
 app.use(express.json());

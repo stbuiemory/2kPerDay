@@ -47,7 +47,7 @@ router.post('/logout', function (req, res, next) {
   });
 });
 
-module.export = initialize; */
+module.export = initialize;
 
 const router = require('express').Router();
 const passport = require('passport');
@@ -141,4 +141,31 @@ router.post('/logout', (req, res) => {
   });
 });
 
-module.exports = router;
+module.exports = router; */
+const express = require('express')
+const app = express()
+
+const session = require('express-session')
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
+
+app.use(express.urlencoded({extended: false}))
+
+authUser = (user, password, done) => {
+  let authenticated_user = {id: , name: ""}
+  return done (null, authenticated_user)
+}
+
+passport.serializeUser((userObj, done) => {
+  done(null, userObj)
+})
+
+passport.deserializeUser((userObj, done) => {
+  done(null, userObj)
+})
+
+app.post ('/login', passport.authenticate('local', {
+  successRedirect: '/mygarden',
+  failureRedirect: '/login',
+}))
+

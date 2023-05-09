@@ -5,6 +5,10 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
+router.use('/login', loginRoute);
+router.use('/logout', logoutRoute);
+router.use('/mygarden', myGardenRoute);
+router.use('/addplant', addPlant);
 
 //exporting module
 module.exports = router;
