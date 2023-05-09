@@ -18,7 +18,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-  res.render('partials/', { layout: 'main' });
+  res.render('partials/logout', { layout: 'main' });
 });
 
 app.get('/mygarden', (req, res) => {
