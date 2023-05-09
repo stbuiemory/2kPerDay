@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
   })
 ); */
 
- router.post('/login', async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { email: req.body.email },
@@ -58,6 +58,7 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
+      res.render('partials/login', { layout: 'main' });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -71,7 +72,7 @@ router.post('/logout', (req, res) => {
   console.log('USER HAS LOGGED OUT');
 });
 
- router.post('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -80,5 +81,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
- 
+
 module.exports = router;
