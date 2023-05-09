@@ -23,7 +23,7 @@ h2 {
 }
 
 /* Class selectors */
-.add-plant {
+.water-plant {
   align-items: center;
   letter-spacing: 0;
   line-height: normal;
@@ -31,8 +31,8 @@ h2 {
   min-width: 57px;
 }
 
-.add-plant-button {
-  background-color: #95AC8E;
+.water-plant-button {
+  background-color: #2596be;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -41,7 +41,7 @@ h2 {
   cursor: pointer;
 }
 
-.add-plants-page .overlap {
+.water-plants-page .overlap {
   align-items: center;
   background-color: var(--chalet-green);
   display: flex;
@@ -51,7 +51,7 @@ h2 {
   padding: 0 10px;
 }
 
-.add-plants-page {
+.water-plants-page {
   align-items: flex-start;
   border: 1px none;
   display: flex;
@@ -61,7 +61,7 @@ h2 {
   margin-top: 5%;
 }
 
-.add-plants-page .plant-column {
+.water-plants-page .plant-column {
   display: flex;
   flex-direction: column;
 }
