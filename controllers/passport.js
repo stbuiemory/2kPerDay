@@ -183,3 +183,9 @@ app.post ('/login', passport.authenticate('local', {
   failureRedirect: '/login',
 }))
 
+app.delete ('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/logout')
+  console.log(`USER HAS LOGGED OUT`)
+})
+
