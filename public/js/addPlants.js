@@ -30,9 +30,7 @@ function populateGarden() {
         let plantImage = data[0].medium_url;
         $(`#plant-image-${i+1}`).attr("src", plantImage);
         $(`#plant-name-${i+1}`).text(plantName);
-        
-        // attach attributes to specific items
-        
+                
       }); 
   }
 }
@@ -40,12 +38,19 @@ function populateGarden() {
 populateGarden()
 
 function addToMyGarden() {
+  $(`.add-plant`).on( "click", function() {
+  // when add to garden is clicked, all plant information is inserted into SQL table   
+  } );
   
-  // when add to garden is clicked, all plant information is inserted into SQL table 
 }
 
 function resetWaterCount() {
   //if watercount is low,
+}
+
+function removePlant() {
+  //if a plant is removed, then it is removed from the database 
+  //alert -no plant left to be found
 }
 
 function savePlantData(plantData, data) {
