@@ -33,17 +33,20 @@ Location.init(
     //     key: 'id',
     //     unique: false, // a plant can belong in many locations
     //   },
-    // },
-    located_plants: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-      references: {
-        model: 'locatedplant',
-        key: 'id',
-        unique: false, // maybe should be true, as a located plant can only be in 1 location
-      },
     },
-  },
+
+    // Commented out so that server can run
+  //   located_plants: {
+  //     type: DataTypes.ARRAY(DataTypes.STRING),
+  //     allowNull: true,
+  //     references: {
+  //       model: 'locatedplant',
+  //       key: 'id',
+  //       unique: false, // maybe should be true, as a located plant can only be in 1 location
+  //     },
+  //   },
+  // },
+
   {
     sequelize,
     timestamps: false,
