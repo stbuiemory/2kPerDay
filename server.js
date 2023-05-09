@@ -25,7 +25,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 
 //sets up session, need to set up cookies
 const sess = {
@@ -48,10 +48,10 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.use('/img', express.static(path.join(__dirname, 'public/img')));
+// app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 app.get('/', (req, res) => {
-  res.render('main', { layout: 'login' });
+    res.render('partials/login', {layout: 'main'});
 });
 
 app.use(express.json());
