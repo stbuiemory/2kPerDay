@@ -1,17 +1,18 @@
 //requiring express router for managing routes
 const router = require('express').Router();
+const express = require('express');
 
 //creating apiRoutes
 const apiRoutes = require('./api');
 
-const app = express();
-
 router.use('/api', apiRoutes);
-router.use('/login', loginRoute);
-router.use('/logout', logoutRoute);
-router.use('/mygarden', myGardenRoute);
-router.use('/addplant', addPlant);
-router.use('/viewspecificplant', viewspecificPlant);
+//router.use('/login', loginRoute);
+//router.use('/logout', logoutRoute);
+//router.use('/mygarden', myGardenRoute);
+//router.use('/addplant', addPlant);
+//router.use('/viewspecificplant', viewspecificPlant);
+
+const app = express();
 
 app.get('/login', (req, res) => {
   res.render('partials/login', { layout: 'main' });

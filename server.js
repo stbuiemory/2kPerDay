@@ -43,7 +43,7 @@ const sess = {
 app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(authUser));
+//passport.use(new LocalStrategy(authUser));
 
 // Handlebars start
 app.engine('handlebars', hbs.engine);
@@ -55,6 +55,26 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('partials/login', { layout: 'main' });
+});
+
+app.get('/login', (req, res) => {
+  res.render('partials/login', { layout: 'main' });
+});
+
+app.get('/logout', (req, res) => {
+  res.render('partials/logout', { layout: 'main' });
+});
+
+app.get('/mygarden', (req, res) => {
+  res.render('partials/mygarden', { layout: 'main' });
+});
+
+app.get('/addplant', (req, res) => {
+  res.render('partials/addplants', { layout: 'main' });
+});
+
+app.get('/viewspecificplant', (req, res) => {
+  res.render('partials/viewspecificplant', { layout: 'main' });
 });
 
 app.use(express.json());
