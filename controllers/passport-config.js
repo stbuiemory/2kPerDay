@@ -1,4 +1,4 @@
-const LocalStrategy = require('passport-local').Strategy;
+/* const LocalStrategy = require('passport-local').Strategy;
 
 function initialize(passport) {
     const authenticateUser = (username, password, done) => {
@@ -9,3 +9,4 @@ function initialize(passport) {
     passport.serializeUser((user, done) => done(null, user.id))
     passport.deserializeUser((id, done) => done(null, {name: '', id: }))
 }
+ */
