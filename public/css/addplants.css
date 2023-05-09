@@ -147,7 +147,7 @@
   background-image: url(img/frame-9.svg);
 }
 
-.frame-2 {
+.left-sidebar {
   align-items: flex-start;
   background-color: #847263;
   display: flex;
@@ -321,7 +321,7 @@
   overflow: hidden;
 }
 
-.frame-3 {
+.banner {
   align-items: flex-start;
   background-color: var(--background);
   display: flex;
