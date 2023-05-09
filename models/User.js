@@ -15,14 +15,6 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -47,15 +39,6 @@ User.init(
         len: [8],
         isAlphanumeric: true,
       },
-    },
-    points: {
-      type: DataTypes.INTEGER,
-      allowNull: true, // starting level at zero or blank?
-      /* users accumulate points for caring for their plants
-      or for completing quizzes about plant knowledge
-      points indicate user level or progress in plant parenting
-      earn badges or prizes (like fertilizer or cute labels or new garden tools) for leveling up
-      */
     },
   },
   {
