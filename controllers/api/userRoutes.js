@@ -20,13 +20,13 @@ router.post('/login', async (req, res) => {
 
 // LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
 
-router.post(
+/* router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/mygarden',
     failureRedirect: '/login',
   })
-);
+); */
 
  router.post('/login', async (req, res) => {
   try {
