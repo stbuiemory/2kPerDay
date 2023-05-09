@@ -23,49 +23,6 @@ h2 {
 }
 
 /* Class selectors */
-.water-plant {
-  align-items: center;
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 15px;
-  min-width: 57px;
-}
-
-.water-plant-button {
-  background-color: #2596be;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.water-plants-page .overlap {
-  align-items: center;
-  background-color: var(--chalet-green);
-  display: flex;
-  height: 29px;
-  justify-content: flex-end;
-  min-width: 80px;
-  padding: 0 10px;
-}
-
-.water-plants-page {
-  align-items: flex-start;
-  border: 1px none;
-  display: flex;
-  gap: 14px;
-  min-width: 1042px;
-  overflow-x: hidden;
-  margin-top: 5%;
-}
-
-.water-plants-page .plant-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .button-container {
   align-items: flex-end;
   background-image: url(/img/plantpot.jpg);
@@ -235,4 +192,47 @@ h2 {
   margin-top: 72px;
   min-height: 687px;
   width: 246px;
+}
+
+.water-plant {
+  align-items: center;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 15px;
+  min-width: 57px;
+}
+
+.water-plant-button {
+  background-color: #2596be;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.water-plants-page {
+  align-items: flex-start;
+  border: 1px none;
+  display: flex;
+  gap: 14px;
+  min-width: 1042px;
+  overflow-x: hidden;
+  margin-top: 5%;
+}
+
+.water-plants-page .plant-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.water-plants-page .overlap {
+  align-items: center;
+  background-color: var(--chalet-green);
+  display: flex;
+  height: 29px;
+  justify-content: flex-end;
+  min-width: 80px;
+  padding: 0 10px;
 }
