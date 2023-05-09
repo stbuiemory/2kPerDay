@@ -6,6 +6,8 @@ const path = require('path');
 // const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
+const intializePassport = require('controllers/passport-config.js');
 //const Handlebars = require('express-handlebars');
 // const { v4: uuidv4 } = require('uuid');
 // const { User } = require('./models');
