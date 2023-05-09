@@ -2,25 +2,19 @@
     <link rel="stylesheet" href="./css/login-logout.css">
 </head>
 
-<div class="login-page screen">
-    <div class="container">
-      <img src="/img/PILIT_Logo.jpg" class="logo img-fluid" alt="logo">
-      <div class="login-box">
-        <h1 class="come-view-your-garden">Come view your garden!</h1><br>
-
-        {{!-- Need to replace with fetch --}}
-        {{!-- <form method="POST" action="./addplants.handlebars"> --}}
-
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username">   
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password">       
-          <input type="submit" id="login" value="Login"><br>
-          <input type="submit" id="createAccount" value="Create Account">
-          {{!-- <input type="submit" value="Create Account"> --}}
-        </form>
+   <div class="login-page screen">
+      <div class="container">
+          <img src="/img/PILIT_Logo.jpg" class="logo img-fluid" alt="logo">
+          <form class="login-box">
+              <h1 class="come-view-your-garden">Come view your garden!</h1><br>
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username">   
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password">       
+              <button class="login-button">Log In</button>
+              <button class="create-account-button">Create Account</button>
+          </form>
       </div>
-    </div>
   </div>
-  <script src=".\js\login.js"></script>
-</div>
+
+  <script src="./a_test.js"></script>

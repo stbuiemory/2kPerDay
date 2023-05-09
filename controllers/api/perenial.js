@@ -30,4 +30,3 @@ function findPlant() {
 function savePlantData(plantData, data) {
   localStorage.setItem(plantData, JSON.stringify(data));
 }
-

@@ -43,3 +43,5 @@ Plant.init(
 );
 
 module.exports = Plant;
+
+// watering levels: Frequent, Average, Minimal
