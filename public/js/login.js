@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (username && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('controllers/api/userRoutes.js', {
+    const response = await fetch('controllers/api/userRoutes/login', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -29,7 +29,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password').value.trim();
 
   if (username && password) {
-    const response = await fetch('controllers/api/userRoutes.js', {
+    const response = await fetch('controllers/api/userRoutes', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
