@@ -1,4 +1,4 @@
-const { authenticate } = require('passport');
+/* const { authenticate } = require('passport');
 const bcrypt = require('bcrypt');
 
 const localStrategy = require('passport-local').Strategy;
@@ -47,4 +47,98 @@ router.post('/logout', function (req, res, next) {
   });
 });
 
-module.export = initialize;
+module.export = initialize; */
+
+const router = require('express').Router();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const { User } = require('../../models');
+const bcrypt = require('bcrypt');
+
+// CREATE new user
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.login(userData, (err) => {
+      if (err) {
+        res.status(400).json(err);
+      } else {
+        req.session.save(() => {
+          res.status(200).json(userData);
+        });
+      }
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// SET UP LOCAL STRATEGY FOR PASSPORT.JS
+passport.use(
+  new LocalStrategy(async (email, password, done) => {
+    try {
+      const userData = await User.findOne({ where: { email } });
+
+      if (!userData) {
+        return done(null, false, {
+          message: 'Incorrect email or password, please try again',
+        });
+      }
+
+      const validPassword = await bcrypt.compare(password, userData.password);
+
+      if (!validPassword) {
+        return done(null, false, {
+          message: 'Incorrect email or password, please try again',
+        });
+      }
+
+      return done(null, userData);
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
+
+// LOG IN existing user (FIND USER BY EMAIL AND CHECK PASSWORD)
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true,
+  })
+);
+
+// SERIALIZE USER ID FOR SESSION STORAGE
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+// DESERIALIZE USER BY ID FOR SESSION RETRIEVAL
+passport.deserializeUser(async (id, done) => {
+  try {
+    const userData = await User.findByPk(id);
+
+    if (!userData) {
+      return done(null, false, {
+        message: 'User not found',
+      });
+    }
+
+    return done(null, userData);
+  } catch (err) {
+    return done(err);
+  }
+});
+
+// LOG OUT user and end session
+router.post('/logout', (req, res) => {
+  req.logout();
+  req.session.destroy(() => {
+    res.status(204).end();
+  });
+});
+
+module.exports = router;
