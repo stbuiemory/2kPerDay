@@ -56,7 +56,7 @@ app.use(express.static('public'));
 // app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 app.get('/', (req, res) => {
-  res.render('partials/login', { layout: 'main' });
+  res.render('partials/viewspecificplant', { layout: 'main' });
 });
 
 app.get('/login', (req, res) => {
