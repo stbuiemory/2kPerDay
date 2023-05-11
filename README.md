@@ -51,7 +51,7 @@ lillianlaihughes Github: https://github.com/lillianlaihughes
 ## Technologies
 
 - Passport.js: https://www.passportjs.org/docs/
-- Plantera API: https://perenual.com/docs/api
+- Perenual API: https://perenual.com/docs/api
 - Heroku
 - MySQL
 - Sequelize
